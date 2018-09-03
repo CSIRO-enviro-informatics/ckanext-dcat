@@ -526,12 +526,12 @@ DCAT is currently in revision - see [editors draft](https://w3c.github.io/dxwg/d
    `_license` method on a custom profile.
 
 *  [DCAT-rev](https://w3c.github.io/dxwg/dcat/) adds the following properties, which might be useful in an updated CKAN-DCAT module:
-  * `dct:creator` recommended for use on `dcat:Dataset` to support better citations
-  * `prov:wasGeneratedBy` on `dcat:Dataset` to link to a description of the activity or project which generated the dataset
-  * `dct:relation` on `dcat:Dataset` to link to related resources, including other datasets, parts, documentation, metadata_created
-  * [DQV](https://www.w3.org/TR/vocab-dqv/) recommended for data quality information
-  * new class `dcat:DataService` to support cataloguing of services, with specializations `dcat:DataDistributionService` and `dcat:DiscoveryService`
-  * as of 2018-09-03
+    - `dct:creator` recommended for use on `dcat:Dataset` to support better citations
+    - `prov:wasGeneratedBy` on `dcat:Dataset` to link to a description of the activity or project which generated the dataset
+    - `dct:relation` on `dcat:Dataset` to link to related resources, including other datasets, parts, documentation, metadata_created
+    - [DQV](https://www.w3.org/TR/vocab-dqv/) recommended for data quality information
+    - new class `dcat:DataService` to support cataloguing of services, with specializations `dcat:DataDistributionService` and `dcat:DiscoveryService`
+    - _as of 2018-09-03_
 
 ## RDF DCAT Parser
 
