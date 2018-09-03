@@ -513,8 +513,8 @@ DCAT is currently in revision - see [editors draft](https://w3c.github.io/dxwg/d
       ] ;
       time:hasEnd [
          time:inXSDDate "2017-12-31"^^xsd:date
-      ]
-   ]
+      ] ;
+   ] ;
    ```
 
 *  On the CKAN model, license is at the dataset level whereas in DCAT model it
