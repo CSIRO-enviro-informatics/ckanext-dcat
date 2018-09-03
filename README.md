@@ -525,8 +525,7 @@ DCAT is currently in revision - see [editors draft](https://w3c.github.io/dxwg/d
    will not be accounted for. This behavior can be customized by overridding the
    `_license` method on a custom profile.
 
-*  [DCAT-rev](https://w3c.github.io/dxwg/dcat/) adds the following properties,
-   which might be useful in an updated CKAN-DCAT module:
+*  [DCAT-rev](https://w3c.github.io/dxwg/dcat/) adds the following properties, which might be useful in an updated CKAN-DCAT module:
   * `dct:creator` recommended for use on `dcat:Dataset` to support better citations
   * `prov:wasGeneratedBy` on `dcat:Dataset` to link to a description of the activity or project which generated the dataset
   * `dct:relation` on `dcat:Dataset` to link to related resources, including other datasets, parts, documentation, metadata_created
