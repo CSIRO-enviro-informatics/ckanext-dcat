@@ -255,10 +255,10 @@ The information contained in the harvested `dcat:Catalog` node will be stored as
 When serializing, your Catalog will expose the harvested Catalog using the `dct:hasPart` relation. This means that your catalog will have this structure:
 - `dcat:Catalog` (represents your current catalog)
   - `dcat:dataset` (1..n, the dataset created withing your catalog)
-  - `dct:hasPart` 
+  - `dct:hasPart`
      - `dcat:Catalog` (info of one of the harvested catalogs)
         - `dcat:dataset` (dataset in the harvested catalog)
-  - `dct:hasPart` 
+  - `dct:hasPart`
      - `dcat:Catalog` (info of one of another harvester catalog)
      ...   
 
@@ -296,61 +296,62 @@ that are used if the default field is not present (see [RDF Serializer](#rdf-dca
 
 This mapping is compatible with the [DCAT-AP v1.1](https://joinup.ec.europa.eu/asset/dcat_application_profile/asset_release/dcat-ap-v11).
 
+DCAT is currently in revision - see [editors draft](https://w3c.github.io/dxwg/dcat/). Most [proposed changes](https://w3c.github.io/dxwg/dcat/#changes) are extensions and do not break implementations based on [DCAT-2014](https://www.w3.org/TR/2014/REC-vocab-dcat-20140116/). See note about new features in [DCAT-rev](https://w3c.github.io/dxwg/dcat/).
 
-| DCAT class        | DCAT property          | CKAN dataset field                        | CKAN fallback fields           | Stored as |                                                                                                                                                               |
-|-------------------|------------------------|-------------------------------------------|--------------------------------|-----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| dcat:Dataset      | -                      | extra:uri                                 |                                | text      | See note about URIs                                                                                                                                           |
-| dcat:Dataset      | dct:title              | title                                     |                                | text      |                                                                                                                                                               |
-| dcat:Dataset      | dct:description        | notes                                     |                                | text      |                                                                                                                                                               |
-| dcat:Dataset      | dcat:keyword           | tags                                      |                                | text      |                                                                                                                                                               |
-| dcat:Dataset      | dcat:theme             | extra:theme                               |                                | list      | See note about lists                                                                                                                                          |
-| dcat:Dataset      | dct:identifier         | extra:identifier                          | extra:guid, id                 | text      |                                                                                                                                                               |
-| dcat:Dataset      | adms:identifier        | extra:alternate_identifier                |                                | text      |                                                                                                                                                               |
-| dcat:Dataset      | dct:issued             | extra:issued                              | metadata_created               | text      |                                                                                                                                                               |
-| dcat:Dataset      | dct:modified           | extra:modified                            | metadata_modified              | text      |                                                                                                                                                               |
-| dcat:Dataset      | owl:versionInfo        | version                                   | extra:dcat_version             | text      |                                                                                                                                                               |
-| dcat:Dataset      | adms:versionNotes      | extra:version_notes                       |                                | text      |                                                                                                                                                               |
-| dcat:Dataset      | dct:language           | extra:language                            |                                | list      | See note about lists                                                                                                                                          |
-| dcat:Dataset      | dcat:landingPage       | url                                       |                                | text      |                                                                                                                                                               |
-| dcat:Dataset      | dct:accrualPeriodicity | extra:frequency                           |                                | text      |                                                                                                                                                               |
-| dcat:Dataset      | dct:conformsTo         | extra:conforms_to                         |                                | list      | See note about lists                                                                                                                                          |
-| dcat:Dataset      | dct:accessRights       | extra:access_rights                       |                                | text      |                                                                                                                                                               |
-| dcat:Dataset      | foaf:page              | extra:documentation                       |                                | list      | See note about lists                                                                                                                                          |
-| dcat:Dataset      | dct:provenance         | extra:provenance                          |                                | text      |                                                                                                                                                               |
-| dcat:Dataset      | dct:type               | extra:dcat_type                           |                                | text      | As of DCAT-AP v1.1 there's no controlled vocabulary for this field                                                                                            |
-| dcat:Dataset      | dct:hasVersion         | extra:has_version                         |                                | list      | See note about lists. It is assumed that these are one or more URIs referring to another dcat:Dataset                                                         |
-| dcat:Dataset      | dct:isVersionOf        | extra:is_version_of                       |                                | list      | See note about lists. It is assumed that these are one or more URIs referring to another dcat:Dataset                                                         |
-| dcat:Dataset      | dct:source             | extra:source                              |                                | list      | See note about lists. It is assumed that these are one or more URIs referring to another dcat:Dataset                                                         |
-| dcat:Dataset      | adms:sample            | extra:sample                              |                                | list      | See note about lists. It is assumed that these are one or more URIs referring to dcat:Distribution instances                                                  |
+| DCAT class        | DCAT property          | CKAN dataset field                        | CKAN fallback fields           | Stored as |                         |
+|-------------------|------------------------|-------------------------------------------|--------------------------------|-----------|-------------------------|
+| dcat:Dataset      | -                      | extra:uri                                 |                                | text      | See note about URIs     |
+| dcat:Dataset      | dct:title              | title                                     |                                | text      |                         |
+| dcat:Dataset      | dct:description        | notes                                     |                                | text      |                         |
+| dcat:Dataset      | dcat:keyword           | tags                                      |                                | text      |                         |
+| dcat:Dataset      | dcat:theme             | extra:theme                               |                                | list      | See note about lists    |
+| dcat:Dataset      | dct:identifier         | extra:identifier                          | extra:guid, id                 | text      |                         |
+| dcat:Dataset      | adms:identifier        | extra:alternate_identifier                |                                | text      |                         |
+| dcat:Dataset      | dct:issued             | extra:issued                              | metadata_created               | text      |                         |
+| dcat:Dataset      | dct:modified           | extra:modified                            | metadata_modified              | text      |                         |
+| dcat:Dataset      | owl:versionInfo        | version                                   | extra:dcat_version             | text      |                         |
+| dcat:Dataset      | adms:versionNotes      | extra:version_notes                       |                                | text      |                         |
+| dcat:Dataset      | dct:language           | extra:language                            |                                | list      | See note about lists    |
+| dcat:Dataset      | dcat:landingPage       | url                                       |                                | text      |                         |
+| dcat:Dataset      | dct:accrualPeriodicity | extra:frequency                           |                                | text      |                         |
+| dcat:Dataset      | dct:conformsTo         | extra:conforms_to                         |                                | list      | See note about lists    |
+| dcat:Dataset      | dct:accessRights       | extra:access_rights                       |                                | text      |                         |
+| dcat:Dataset      | foaf:page              | extra:documentation                       |                                | list      | See note about lists    |
+| dcat:Dataset      | dct:provenance         | extra:provenance                          |                                | text      | In [DCAT-rev](https://w3c.github.io/dxwg/dcat/) (expected 2019) [prov:wasGeneratedBy](https://www.w3.org/ns/prov#wasGeneratedBy) is recommended to link to the description of the activity or project context |
+| dcat:Dataset      | dct:type               | extra:dcat_type                           |                                | text      | As of DCAT-AP v1.1 there's no controlled vocabulary for this field |
+| dcat:Dataset      | dct:hasVersion         | extra:has_version                         |                                | list      | See note about lists. It is assumed that these are one or more URIs referring to another dcat:Dataset |
+| dcat:Dataset      | dct:isVersionOf        | extra:is_version_of                       |                                | list      | See note about lists. It is assumed that these are one or more URIs referring to another dcat:Dataset |
+| dcat:Dataset      | dct:source             | extra:source                              |                                | list      | See note about lists. It is assumed that these are one or more URIs referring to another dcat:Dataset |
+| dcat:Dataset      | adms:sample            | extra:sample                              |                                | list      | See note about lists. It is assumed that these are one or more URIs referring to dcat:Distribution instances |
 | dcat:Dataset      | dct:spatial            | extra:spatial_uri                         |                                | text      | If the RDF provides them, profiles should store the textual and geometric representation of the location in extra:spatial_text and extra:spatial respectively |
-| dcat:Dataset      | dct:temporal           | extra:temporal_start + extra:temporal_end |                                | text      | None, one or both extras can be present                                                                                                                       |
-| dcat:Dataset      | dct:publisher          | extra:publisher_uri                       |                                | text      | See note about URIs                                                                                                                                           |
-| foaf:Agent        | foaf:name              | extra:publisher_name                      |                                | text      |                                                                                                                                                               |
-| foaf:Agent        | foaf:mbox              | extra:publisher_email                     | organization:title             | text      |                                                                                                                                                               |
-| foaf:Agent        | foaf:homepage          | extra:publisher_url                       |                                | text      |                                                                                                                                                               |
-| foaf:Agent        | dct:type               | extra:publisher_type                      |                                | text      |                                                                                                                                                               |
-| dcat:Dataset      | dcat:contactPoint      | extra:contact_uri                         |                                | text      | See note about URIs                                                                                                                                           |
-| vcard:Kind        | vcard:fn               | extra:contact_name                        | maintainer, author             | text      |                                                                                                                                                               |
-| vcard:Kind        | vcard:hasEmail         | extra:contact_email                       | maintainer_email, author_email | text      |                                                                                                                                                               |
-| dcat:Dataset      | dcat:distribution      | resources                                 |                                | text      |                                                                                                                                                               |
-| dcat:Distribution | -                      | resource:uri                              |                                | text      | See note about URIs                                                                                                                                           |
-| dcat:Distribution | dct:title              | resource:name                             |                                | text      |                                                                                                                                                               |
-| dcat:Distribution | dcat:accessURL         | resource:access_url                       | resource:url                   | text      | If downloadURL is not present, accessURL will be used as resource url                                                                                         |
-| dcat:Distribution | dcat:downloadURL       | resource:download_url                     |                                | text      | If present, downloadURL will be used as resource url                                                                                                          |
-| dcat:Distribution | dct:description        | resource:description                      |                                | text      |                                                                                                                                                               |
-| dcat:Distribution | dcat:mediaType         | resource:mimetype                         |                                | text      |                                                                                                                                                               |
-| dcat:Distribution | dct:format             | resource:format                           |                                | text      | This is likely to require extra logic to accommodate how CKAN deals with formats (eg ckan/ckanext-dcat#18)                                                    |
-| dcat:Distribution | dct:license            | resource:license                          |                                | text      | See note about dataset license                                                                                                                                |
-| dcat:Distribution | adms:status            | resource:status                           |                                | text      |                                                                                                                                                               |
-| dcat:Distribution | dcat:byteSize          | resource:size                             |                                | number    |                                                                                                                                                               |
-| dcat:Distribution | dct:issued             | resource:issued                           |                                | text      |                                                                                                                                                               |
-| dcat:Distribution | dct:modified           | resource:modified                         |                                | text      |                                                                                                                                                               |
-| dcat:Distribution | dct:rights             | resource:rights                           |                                | text      |                                                                                                                                                               |
-| dcat:Distribution | foaf:page              | resource:documentation                    |                                | list      | See note about lists                                                                                                                                          |
-| dcat:Distribution | dct:language           | resource:language                         |                                | list      | See note about lists                                                                                                                                          |
-| dcat:Distribution | dct:conformsTo         | resource:conforms_to                      |                                | list      | See note about lists                                                                                                                                          |
-| spdx:Checksum     | spdx:checksumValue     | resource:hash                             |                                | text      |                                                                                                                                                               |
-| spdx:Checksum     | spdx:algorithm         | resource:hash_algorithm                   |                                | text      |                                                                                                                                                               |
+| dcat:Dataset      | dct:temporal           | extra:temporal_start + extra:temporal_end |                                | text      | None, one or both extras can be present  - See note about temporal properties |
+| dcat:Dataset      | dct:publisher          | extra:publisher_uri                       |                                | text      | See note about URIs     |
+| foaf:Agent        | foaf:name              | extra:publisher_name                      |                                | text      |                         |
+| foaf:Agent        | foaf:mbox              | extra:publisher_email                     | organization:title             | text      |                         |
+| foaf:Agent        | foaf:homepage          | extra:publisher_url                       |                                | text      |                         |
+| foaf:Agent        | dct:type               | extra:publisher_type                      |                                | text      |                         |
+| dcat:Dataset      | dcat:contactPoint      | extra:contact_uri                         |                                | text      | See note about URIs     |
+| vcard:Kind        | vcard:fn               | extra:contact_name                        | maintainer, author             | text      |                         |
+| vcard:Kind        | vcard:hasEmail         | extra:contact_email                       | maintainer_email, author_email | text      |                         |
+| dcat:Dataset      | dcat:distribution      | resources                                 |                                | text      |                         |
+| dcat:Distribution | -                      | resource:uri                              |                                | text      | See note about URIs     |
+| dcat:Distribution | dct:title              | resource:name                             |                                | text      |                         |
+| dcat:Distribution | dcat:accessURL         | resource:access_url                       |                                | text      | If downloadURL is not present, accessURL will be used as resource url |
+| dcat:Distribution | dcat:downloadURL       | resource:download_url                     | resource:url                   | text      | If present, downloadURL will be used as resource url |
+| dcat:Distribution | dct:description        | resource:description                      |                                | text      |                         |
+| dcat:Distribution | dcat:mediaType         | resource:mimetype                         |                                | text      |                         |
+| dcat:Distribution | dct:format             | resource:format                           |                                | text      | This is likely to require extra logic to accommodate how CKAN deals with formats (eg ckan/ckanext-dcat#18) |
+| dcat:Distribution | dct:license            | resource:license                          |                                | text      | See note about dataset license |
+| dcat:Distribution | adms:status            | resource:status                           |                                | text      |                         |
+| dcat:Distribution | dcat:byteSize          | resource:size                             |                                | number    |                         |
+| dcat:Distribution | dct:issued             | resource:issued                           |                                | text      |                         |
+| dcat:Distribution | dct:modified           | resource:modified                         |                                | text      |                         |
+| dcat:Distribution | dct:rights             | resource:rights                           |                                | text      |                         |
+| dcat:Distribution | foaf:page              | resource:documentation                    |                                | list      | See note about lists    |
+| dcat:Distribution | dct:language           | resource:language                         |                                | list      | See note about lists    |
+| dcat:Distribution | dct:conformsTo         | resource:conforms_to                      |                                | list      | See note about lists    |
+| spdx:Checksum     | spdx:checksumValue     | resource:hash                             |                                | text      |                         |
+| spdx:Checksum     | spdx:algorithm         | resource:hash_algorithm                   |                                | text      |                         |
 
 *Notes*
 
@@ -498,14 +499,40 @@ This mapping is compatible with the [DCAT-AP v1.1](https://joinup.ec.europa.eu/a
         </dct:spatial>
         ```
 
+*  The [W3C OWL-Time vocabulary](https://www.w3.org/TR/owl-time/) may be used
+   to express temporal details. The temporal extent of a dataset is modeled as a
+   `time:ProperInterval` whose bounds are `time:Instant`. The position of an
+   Instant can be encoded in various ways, the simplest using `time:inXSDDate`
+   or `time:inXSDDateTiemStamp`. This example shows the simplest form nested
+   inside 'blank nodes'
+
+   ``` turtle
+   dct:temporal [
+      time:hasBeginning [
+         time:inXSDDate "2016-01-01"^^xsd:date
+      ] ;
+      time:hasEnd [
+         time:inXSDDate "2017-12-31"^^xsd:date
+      ]
+   ]
+   ```
+
 *  On the CKAN model, license is at the dataset level whereas in DCAT model it
    is at distributions level. By default the RDF parser will try to find a
    distribution with a license that matches one of those registered in CKAN
    and attach this license to the dataset. The first matching distribution's
-   license is used, meaning that any discrepancy accross distributions license
+   license is used, meaning that any discrepancy across distributions license
    will not be accounted for. This behavior can be customized by overridding the
    `_license` method on a custom profile.
 
+*  [DCAT-rev](https://w3c.github.io/dxwg/dcat/) adds the following properties,
+   which might be useful in an updated CKAN-DCAT module:
+  * `dct:creator` recommended for use on `dcat:Dataset` to support better citations
+  * `prov:wasGeneratedBy` on `dcat:Dataset` to link to a description of the activity or project which generated the dataset
+  * `dct:relation` on `dcat:Dataset` to link to related resources, including other datasets, parts, documentation, metadata_created
+  * [DQV](https://www.w3.org/TR/vocab-dqv/) recommended for data quality information
+  * new class `dcat:DataService` to support cataloguing of services, with specializations `dcat:DataDistributionService` and `dcat:DiscoveryService`
+  * as of 2018-09-03
 
 ## RDF DCAT Parser
 
